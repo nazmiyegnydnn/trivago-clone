@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/home/Home'
-
+import "./App.scss";
 const App = () => {
   return (
     <div className="app">

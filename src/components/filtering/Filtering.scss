@@ -1,0 +1,16 @@
+    .filteringBar{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width:930px ;
+        .filtering{
+            width: 180px;
+            .filteringButton{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width:180px;
+                border-radius: 20px;
+            }
+        }
+    }
