@@ -2,7 +2,7 @@ import React from 'react';
 import "./Filtering.scss";
 import { Button, Dropdown,Select } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import { MenuProps } from 'antd';
 
 
 

@@ -5,6 +5,7 @@ import SearchBar from '../searchBar/SearchBar'
 import Filtering from '../filtering/Filtering'
 import Footer from '../footer/Footer'
 
+
 const Home = () => {
   
   return (
