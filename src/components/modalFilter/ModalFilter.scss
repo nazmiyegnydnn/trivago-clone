@@ -1,11 +1,14 @@
 .modal-filter {
     position: relative;
-}
-.modal{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    background-color: white;
-    z-index: 999;
-    margin: 20px 0 0 10px;
-    position: absolute;
+    button{
+        border-radius: 20px;
+    }
+    .modal{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        background-color: white;
+        z-index: 999;
+        margin: 20px 0 0 10px;
+        position: absolute;
+    }
 }
