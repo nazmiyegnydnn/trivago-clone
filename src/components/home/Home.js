@@ -4,6 +4,7 @@ import './Home.scss'
 import SearchBar from '../searchBar/SearchBar'
 import Filtering from '../filtering/Filtering'
 import Footer from '../footer/Footer'
+import Main from '../main/Main'
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
        <div className='homeFilteringBar'>
         <Filtering/>
        </div>
+       <Main></Main>
         </div>
         <Footer/>
     </div>

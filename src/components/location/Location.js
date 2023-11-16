@@ -23,7 +23,7 @@ const [inputValue, setInputValue] = useState(1);
 
   return (
     <div className='location'>
-     <h5>Şuraya yakın bir konaklama yeri bul</h5>
+     <h4>Şuraya yakın bir konaklama yeri bul</h4>
      <p>bu popüler yer:</p>
      <Input
      placeholder='Şehir merkezi '

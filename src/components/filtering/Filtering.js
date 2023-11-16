@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import "./Filtering.scss";
 import { DownOutlined } from "@ant-design/icons";
 import ModalFilter from "../modalFilter/ModalFilter";
@@ -9,6 +9,7 @@ import Accomodation from "../accomodation/Accomodation";
 import Location from "../location/Location";
 
 const Filtering = () => {
+
   return (
     <div className="filteringBar">
       <div className="filtering">
@@ -69,7 +70,7 @@ const Filtering = () => {
         <ModalFilter
           width="250px"
           top="20px"
-          height="470px"
+          height="430px"
           buttonLabel="Şehir merkezi"
           buttonWidth="150px"
           icon={<DownOutlined />}

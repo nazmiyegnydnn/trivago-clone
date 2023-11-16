@@ -1,0 +1,26 @@
+.guestFilter{
+    margin-left: 10px;
+    .guest{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .guestButtons{
+           ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            li{
+                button{
+                    width: 50px;
+                    border-radius: 100px;
+                    text-align: center;
+                }
+                input{
+                    width: 40px;
+                }
+            }
+           }
+        }
+    }
+}

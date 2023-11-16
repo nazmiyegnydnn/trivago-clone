@@ -3,6 +3,7 @@ import "./SearchBar.scss";
 import { Input, DatePicker, Space , Button } from "antd";
 import ModalFilter from "../modalFilter/ModalFilter"
 import { DownOutlined } from '@ant-design/icons';
+import GuestFilter from '../guestFilter/GuestFilter';
 
 const SearchBar = () => {
   const { RangePicker } = DatePicker;
@@ -39,17 +40,13 @@ const SearchBar = () => {
       </div>
       <div className="searchRoom">
         <ModalFilter 
-          width={"135%"}
-          height={"200px"}
+          width={"400px"}
+          height={"300px"}
           top={"35px"}
           icon={<DownOutlined/>}
-          children= {
-            <>
-              <p> qweopkqwpeokp </p>
-              <p> + </p>
-            </>
-          }
-        />
+          >
+            <GuestFilter/>
+          </ModalFilter>
       </div>
       <div className="searchButton">
       <Button>ARA</Button>

@@ -1,0 +1,59 @@
+.main{
+    h3{
+        margin-top: 50px;
+    }
+    .popülerOtelsCard{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        .otelCards{
+            width: 300px;
+            height: 350px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            h3{
+                margin: 0;
+                padding-left: 10px;
+            }
+            img{
+                width: 300px;
+                height: 250px;
+                border-radius: 20px 20px 0 0;
+            }
+            .locationText{
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                margin-left: 10px;
+                p{
+                    font-size: 12px;
+                    margin: 0px;
+                    span{
+                        margin-left: 12px;
+                    }
+                }
+            }
+            .filterText{
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                span{
+                    display: flex;
+                    margin: 0 12px 0 5px;
+                    p{
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .trivagoDownload{
+        width: 900px;
+        height: 250px;
+        background-color: #E7F4FA;
+        margin-top: 50px;
+        border-radius: 10px;
+        padding: 20px;
+    }
+}
