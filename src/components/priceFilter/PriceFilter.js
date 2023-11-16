@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import {Button, InputNumber,Slider } from 'antd';
+import {InputNumber,Slider } from 'antd';
 import "./PriceFilter.scss";
+
 
 
 const PriceFilter = () => {
@@ -30,10 +31,7 @@ const [inputValue, setInputValue] = useState(1);
           value={inputValue}
           onChange={onChange}
         />
-    </div>
-    <div className='resetApply'>
-        <Button className='reset'>Sıfırla</Button>
-        <Button>Uygula</Button>
+        
     </div>
     </div>
   )

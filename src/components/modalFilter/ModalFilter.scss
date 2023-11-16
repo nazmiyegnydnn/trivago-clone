@@ -10,5 +10,21 @@
         z-index: 999;
         margin: 20px 0 0 10px;
         position: absolute;
+        .modalButtons{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            .resetButton{
+                background-color: white;
+                color: gray;
+                margin-left: 20px;
+            }
+            .applyButton{
+                background-color: #005FA3;
+                color: white;
+                margin-right: 20px;
+            }
+        }
     }
 }

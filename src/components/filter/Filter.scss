@@ -1,6 +1,5 @@
 .filter{
     padding: 10px 20px;
-    h4{}
     .starButton{
         display: flex;
         justify-content: space-evenly;
@@ -14,5 +13,11 @@
             background-color: #C4E3F4;
             border: 1px solid #005FA3; 
         }  
+    }
+    .filtrechexbox{
+        display: flex;
+        ul{
+            list-style-type: none; 
+        }
     }
 }

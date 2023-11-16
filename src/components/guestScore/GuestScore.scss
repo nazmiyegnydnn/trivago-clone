@@ -1,0 +1,16 @@
+.guestScore{
+    .point{
+        ul{
+            margin-top: 20px;
+            list-style-type: none;
+            li{
+                display: flex;
+                justify-content: left;
+                align-items: center;
+             p{
+                margin-left: 15px;
+             }
+            }
+          }
+        }
+}
