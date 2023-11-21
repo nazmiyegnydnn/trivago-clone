@@ -8,8 +8,16 @@ import GuestScore from "../guestScore/GuestScore";
 import Accomodation from "../accomodation/Accomodation";
 import Location from "../location/Location";
 
-const Filtering = () => {
+const Filtering = ({openModal ,setOpenModal}) => {
+  
 
+  const handleModalOpen = (modalName) => {
+    setOpenModal(modalName);
+  };
+
+  const handleModalClose = () => {
+    setOpenModal(null);
+  };
   return (
     <div className="filteringBar">
       <div className="filtering">
@@ -22,6 +30,9 @@ const Filtering = () => {
           buttonWidth="300px"
           borderRadius="20px"
           icon={<DownOutlined />}
+          isOpen={openModal === 'PriceFilter'}
+          onOpen={() => handleModalOpen('PriceFilter')}
+          onClose={handleModalClose}
         >
           <PriceFilter />
         </ModalFilter>
@@ -35,6 +46,9 @@ const Filtering = () => {
           buttonLabel="Seç"
           buttonWidth="150px"
           icon={<DownOutlined />}
+          isOpen={openModal === 'Filter'}
+          onOpen={() => handleModalOpen('Filter')}
+          onClose={handleModalClose}
         >
           <Filter></Filter>
         </ModalFilter>
@@ -48,6 +62,9 @@ const Filtering = () => {
           buttonLabel="Tümü"
           buttonWidth="150px"
           icon={<DownOutlined />}
+          isOpen={openModal === 'GuestScore'}
+          onOpen={() => handleModalOpen('GuestScore')}
+          onClose={handleModalClose}
         >
           <GuestScore />
         </ModalFilter>
@@ -61,6 +78,9 @@ const Filtering = () => {
           buttonLabel="Tümü"
           buttonWidth="150px"
           icon={<DownOutlined />}
+          isOpen={openModal === 'Accomodation'}
+          onOpen={() => handleModalOpen('Accomodation')}
+          onClose={handleModalClose}
         >
           <Accomodation />
         </ModalFilter>
@@ -74,6 +94,10 @@ const Filtering = () => {
           buttonLabel="Şehir merkezi"
           buttonWidth="150px"
           icon={<DownOutlined />}
+          isOpen={openModal === 'Location'}
+          onOpen={() => handleModalOpen('Location')}
+          onClose={handleModalClose}
+          
         >
           <Location />
         </ModalFilter>

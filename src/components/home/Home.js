@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react';
 import Header from '../header/Header'
 import './Home.scss'
 import SearchBar from '../searchBar/SearchBar'
@@ -8,18 +8,34 @@ import Main from '../main/Main'
 
 
 const Home = () => {
-  
+  const [openModal, setOpenModal] = useState(null);
+  const [openFiltiring, setOpenFiltiring] = useState(false);
   return (
     <div className='home'>
         <Header/>
         <div className='homePage'>
         <h2>Birçok siteden otel fiyatlarını karşılaştırıyoruz</h2>
        <div className='homeSearchBar'>
-        <SearchBar/>
+        <SearchBar
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        openFiltiring={openFiltiring}
+        setOpenFiltiring={setOpenFiltiring}
+        />
        </div>
-       <div className='homeFilteringBar'>
-        <Filtering/>
-       </div>
+       {
+        openFiltiring  ? (
+          <div className='homeFilteringBar'>
+          <Filtering
+          openModal={openModal}
+          setOpenModal={setOpenModal}/>
+         </div>
+        )
+        :(
+          ""
+        )
+       }
+  
        <Main></Main>
         </div>
         <Footer/>

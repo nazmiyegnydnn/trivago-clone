@@ -1,54 +1,155 @@
 .main{
-    h3{
-        margin-top: 50px;
-    }
-    .popülerOtelsCard{
+    .filterOtelsMain{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
-        .otelCards{
-            width: 300px;
-            height: 350px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            h3{
-                margin: 0;
-                padding-left: 10px;
-            }
-            img{
-                width: 300px;
-                height: 250px;
-                border-radius: 20px 20px 0 0;
-            }
-            .locationText{
+        margin: 50px 0 0 10px;
+        .filterOtelsCard{
+            width: 800px;
+            margin-bottom: 10px;
+            .otelsCard{
                 display: flex;
-                justify-content: start;
-                align-items: center;
-                margin-left: 10px;
-                p{
-                    font-size: 12px;
-                    margin: 0px;
+                margin-bottom: 20px;
+                width: 800px;
+                height: 200px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                border-radius: 20px;
+                 .cardPhoto{
+                    img{
+                        width: 200px;
+                        height: 200px;
+                        border-radius: 20px 0 0 20px;
+                    }
+                 }
+                 .cardText{
+                    margin: px 0 0 20px;
+                    h3{
+                        margin-left: 16px;
+                    }
+                    .locationText{
+                        .evaluation {
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            p{
+                                font-size: 13px;
+                                margin: 0px;
+                                span{
+                                    margin-left: 12px;
+                                }
+                            }
+                        }
+                        .point {
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            margin-left: 14px;
+                            p{
+                                font-size: 12px;
+                                margin: 0px;
+                                span{
+                                    margin-left: 12px;
+                                }
+                            }
+                        }
+                    }
+                 }
+                 .cardDetail{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #F6F9FD;
+                    margin:30px 0 0 270px;
+                    height: 115px;
+                    padding: 8px;
+                    p{
+                        font-size: 13px;
+                        color: gray;
+                        margin: 10px 0 15px 1px;
+                    }
+                    Button{
+                        width: 145px;
+                        height: 50px;
+                        color: #056BFD;
+                        font-weight: bolder;
+                        border:1px solid #056BFD;
+                    }
+                    a{
+                        color: #056BFD;
+                        text-decoration: none;
+                        font-size: 12px;
+                        margin: 15px 0 0 73px;                    }
+                 }
+                .filterText{
+                    display: flex;
+                    margin: 50px 0 0 8px;
                     span{
-                        margin-left: 12px;
+                        display: flex;
+                        margin: 0 12px 0 5px;
+                        p{
+                            font-size: 12px;
+                        }
                     }
                 }
             }
-            .filterText{
-                display: flex;
-                justify-content: start;
-                align-items: center;
-                span{
+        } 
+        .otelMap{
+            margin-left: 50px;
+        }
+    }
+    .otelsMain{
+        width: 930px;
+        margin-left: 160px;
+        h3{
+            margin-top: 50px;
+        }
+        .popülerOtelsCard{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            .otelCards{
+                width: 300px;
+                height: 350px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                border-radius: 20px;
+                h3{
+                    margin: 0;
+                    padding-left: 10px;
+                }
+                img{
+                    width: 300px;
+                    height: 250px;
+                    border-radius: 20px 20px 0 0;
+                }
+                .locationText{
                     display: flex;
-                    margin: 0 12px 0 5px;
+                    justify-content: start;
+                    align-items: center;
+                    margin-left: 10px;
                     p{
                         font-size: 12px;
+                        margin: 0px;
+                        span{
+                            margin-left: 12px;
+                        }
+                    }
+                }
+                .filterText{
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    span{
+                        display: flex;
+                        margin: 0 12px 0 5px;
+                        p{
+                            font-size: 12px;
+                        }
                     }
                 }
             }
         }
     }
+    
     .trivagoDownload{
+        margin-left: 160px;
         width: 900px;
         height: 250px;
         background-color: #E7F4FA;

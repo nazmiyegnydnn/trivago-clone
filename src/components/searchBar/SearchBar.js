@@ -4,9 +4,23 @@ import { Input, DatePicker, Space , Button } from "antd";
 import ModalFilter from "../modalFilter/ModalFilter"
 import { DownOutlined } from '@ant-design/icons';
 import GuestFilter from '../guestFilter/GuestFilter';
+import { useDispatch } from 'react-redux'
+import {filterTitle} from "../../appSlice"
 
-const SearchBar = () => {
+const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring}) => {
+  const dispatch = useDispatch()
   const { RangePicker } = DatePicker;
+  const handleModalOpen = (modalName) => {
+    setOpenModal(modalName);
+  };
+
+  const handleModalClose = () => {
+    setOpenModal(null);
+  };
+
+const openSearchFiltiring = () =>{
+  setOpenFiltiring(true)
+}
 
   return (
     <div className="searchBar">
@@ -31,7 +45,9 @@ const SearchBar = () => {
             ></path>
           </g>
         </svg>
-        <Input placeholder="Gidilecek Yer" />
+        <Input placeholder="Gidilecek Yer"
+         onChange={(e) => dispatch(filterTitle(e.target.value))}
+         />
       </div>
       <div className="searchDate">
         <Space direction="vertical" size={12}>
@@ -44,12 +60,15 @@ const SearchBar = () => {
           height={"300px"}
           top={"35px"}
           icon={<DownOutlined/>}
+          isOpen={openModal === 'GuestFilter'}
+          onOpen={() => handleModalOpen('GuestFilter')}
+          onClose={handleModalClose}
           >
             <GuestFilter/>
           </ModalFilter>
       </div>
       <div className="searchButton">
-      <Button>ARA</Button>
+      <Button onClick={openSearchFiltiring}>ARA</Button>
       </div>
     </div>
   );

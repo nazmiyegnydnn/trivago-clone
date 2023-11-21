@@ -5,9 +5,19 @@
         align-items: center;
         .headerLink{
             width: 500px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+            ul{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                li{
+                list-style-type: none;
+                a{
+                  color: black;
+                  text-decoration: none;
+                }
+                }
+            }
+           
             .favorite , .language , .login , .menu{
                 display: flex;
                 span{
