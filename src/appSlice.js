@@ -115,7 +115,6 @@ const initialState = {
         }
         
     ],
-    filterOtelData:[],
 }
   
 
@@ -123,14 +122,10 @@ const initialState = {
     name: 'app',  
     initialState,
     reducers: {
-        filterTitle :(state , action) =>{ 
-            const filterData = state.otelDatas?.filter((el) => el?.city?.toLowerCase()?.includes(action.payload.toLowerCase()));
-            state.filterOtelData =  filterData   
-          },
-        
+   
     }
   })
 
-  export const {filterTitle} = appSlice.actions 
+  export const {} = appSlice.actions 
 
   export default appSlice.reducer 

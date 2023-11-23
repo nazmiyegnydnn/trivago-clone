@@ -1,14 +1,14 @@
-import React from 'react';
+import React , {useState} from 'react';
 import "./SearchBar.scss";
 import { Input, DatePicker, Space , Button } from "antd";
 import ModalFilter from "../modalFilter/ModalFilter"
 import { DownOutlined } from '@ant-design/icons';
 import GuestFilter from '../guestFilter/GuestFilter';
-import { useDispatch } from 'react-redux'
-import {filterTitle} from "../../appSlice"
+import { useSelector } from "react-redux";
 
-const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring}) => {
-  const dispatch = useDispatch()
+
+const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring, setTrivagoDownload,setBackgroundVisible ,setFilterOtelData}) => {
+  const { otelDatas } = useSelector((state) => state.app);
   const { RangePicker } = DatePicker;
   const handleModalOpen = (modalName) => {
     setOpenModal(modalName);
@@ -20,10 +20,16 @@ const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring}) => {
 
 const openSearchFiltiring = () =>{
   setOpenFiltiring(true)
+  setTrivagoDownload(false)
+}
+const filterTitle = (value) =>{
+  const dataFilter =otelDatas?.filter((el) => el?.city?.toLowerCase()?.includes(value.toLowerCase()));
+  setFilterOtelData(dataFilter)
 }
 
+
   return (
-    <div className="searchBar">
+    <div className= "searchBar">
       <div className="search">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +52,7 @@ const openSearchFiltiring = () =>{
           </g>
         </svg>
         <Input placeholder="Gidilecek Yer"
-         onChange={(e) => dispatch(filterTitle(e.target.value))}
+         onChange={(e) => (filterTitle(e.target.value))}
          />
       </div>
       <div className="searchDate">
@@ -71,6 +77,8 @@ const openSearchFiltiring = () =>{
       <Button onClick={openSearchFiltiring}>ARA</Button>
       </div>
     </div>
+    
+
   );
 };
 

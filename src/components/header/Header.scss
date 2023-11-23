@@ -1,3 +1,48 @@
+.backgroundOpen{
+    background-color: #F3F4F5;
+    .headerMenu{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .headerLink{
+            width: 500px;
+            ul{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                li{
+                list-style-type: none;
+                a{
+                  color: black;
+                  text-decoration: none;
+                }
+                }
+            }
+           
+            .favorite , .language , .login , .menu{
+                display: flex;
+                span{
+                    svg{
+                        margin: 14px 6px 0 0;
+                    }
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+         }
+    }
+    .headerLine{
+        hr {
+            width:100%;
+            border-style: solid;
+            color: #D8DDE1;
+            border-bottom: 1px;
+            margin-top: -2px;
+        }
+     }
+
+}
 .header{
     .headerMenu{
         display: flex;

@@ -10,6 +10,11 @@ import Main from '../main/Main'
 const Home = () => {
   const [openModal, setOpenModal] = useState(null);
   const [openFiltiring, setOpenFiltiring] = useState(false);
+  const [trivagoDownload, setTrivagoDownload] = useState(true);
+  const [filterOtelData, setFilterOtelData] = useState([])
+
+
+
   return (
     <div className='home'>
         <Header/>
@@ -21,6 +26,9 @@ const Home = () => {
         setOpenModal={setOpenModal}
         openFiltiring={openFiltiring}
         setOpenFiltiring={setOpenFiltiring}
+        setTrivagoDownload={setTrivagoDownload}
+        filterOtelData={filterOtelData}
+        setFilterOtelData={setFilterOtelData}
         />
        </div>
        {
@@ -36,7 +44,13 @@ const Home = () => {
         )
        }
   
-       <Main></Main>
+       <Main
+       trivagoDownload={trivagoDownload}
+       openFiltiring={openFiltiring}
+       filterOtelData={filterOtelData}
+       setFilterOtelData={setFilterOtelData}
+       
+       />
         </div>
         <Footer/>
     </div>
