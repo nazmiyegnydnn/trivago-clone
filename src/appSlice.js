@@ -1,5 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Otel from "../src/images/Otel.jpg"
+import moment from 'moment'; 
+
+const generateRandomDate = () => {
+    const start = moment().subtract(30, 'days');
+    const end = moment().add(30, 'days');
+    const randomDate = moment(start + Math.random() * (end - start));
+    return randomDate.format('YYYY-MM-DD');
+  };
+
 const initialState = { 
     otelDatas: [
         {
@@ -11,7 +20,9 @@ const initialState = {
             point:8,
             type:"Otel",
             star:5,
-            pool:"Havuz"
+            pool:"Havuz",
+            entranceDate: generateRandomDate(),
+            exitDate:generateRandomDate()
             
         },
         {
@@ -23,7 +34,9 @@ const initialState = {
             point:2,
             type:"Otel",
             star:2,
-            pool:"Havuz"
+            pool:"Havuz",
+            entranceDate: generateRandomDate(),
+            exitDate:generateRandomDate()
         },
         {
             id:3,
@@ -34,7 +47,9 @@ const initialState = {
             point:8,
             type:"Ev/Apart",
             star:4,
-            pool:"Havuz"
+            pool:"Havuz",
+            entranceDate: generateRandomDate(),
+            exitDate:generateRandomDate()
         },
         {
             id:4,

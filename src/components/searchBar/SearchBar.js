@@ -1,34 +1,57 @@
-import React , {useState} from 'react';
+import React from 'react';
 import "./SearchBar.scss";
-import { Input, DatePicker, Space , Button } from "antd";
+import { Input, DatePicker, Button , Form} from "antd";
 import ModalFilter from "../modalFilter/ModalFilter"
 import { DownOutlined } from '@ant-design/icons';
 import GuestFilter from '../guestFilter/GuestFilter';
 import { useSelector } from "react-redux";
+import { useForm, Controller } from "react-hook-form";
+import moment from 'moment';
 
 
-const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring, setTrivagoDownload,setBackgroundVisible ,setFilterOtelData}) => {
+
+
+const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring, setTrivagoDownload ,setFilterOtelData}) => {
   const { otelDatas } = useSelector((state) => state.app);
-  const { RangePicker } = DatePicker;
+
   const handleModalOpen = (modalName) => {
     setOpenModal(modalName);
   };
-
   const handleModalClose = () => {
     setOpenModal(null);
   };
 
-const openSearchFiltiring = () =>{
+const { handleSubmit, watch , control } = useForm({
+  defaultValues: {
+    city: 'Ankara'
+  }
+});
+
+const onSubmit = (data) => {
+  console.log(data);
+  const formattedDate = moment(data?.entranceDate).format("DD-MM-YYYY");
+  console.log(formattedDate);
+
+const filteredOtelData = otelDatas?.filter((otel) => {
+  const isCityMatch = otel?.city?.toLowerCase().includes(data.city.toLowerCase());
+    // Burada giriş ve çıkış tarihlerini de kontrol edebilirsiniz
+    // Örneğin, eğer tarihler belirlenmişse, o tarih aralığına uyan otelleri filtreleyebilirsiniz.
+    // const isDateMatch = otel?.date >= formattedEntranceDate && otel?.date <= formattedExitDate;
+  return isCityMatch; // && isDateMatch; eklenebilir, tarih filtresi eklenmiş hali
+});
+
+  setFilterOtelData(filteredOtelData);
   setOpenFiltiring(true)
   setTrivagoDownload(false)
 }
-const filterTitle = (value) =>{
-  const dataFilter =otelDatas?.filter((el) => el?.city?.toLowerCase()?.includes(value.toLowerCase()));
-  setFilterOtelData(dataFilter)
-}
+
+
+console.log(watch("entranceDate"))
+console.log(watch("exitDate"))
 
 
   return (
+    <Form onFinish={handleSubmit(onSubmit)} >
     <div className= "searchBar">
       <div className="search">
         <svg
@@ -51,14 +74,31 @@ const filterTitle = (value) =>{
             ></path>
           </g>
         </svg>
-        <Input placeholder="Gidilecek Yer"
-         onChange={(e) => (filterTitle(e.target.value))}
-         />
+        <Controller
+            name="city"
+            control={control}
+            render={({ field }) => (
+              <Input placeholder="Gidilecek Yer"
+              {...field}
+              />
+            )}
+        />
       </div>
       <div className="searchDate">
-        <Space direction="vertical" size={12}>
-          <RangePicker placeholder={["Giriş", "Çıkış"]} />
-        </Space>
+          <Controller
+            name="entranceDate"
+            control={control}
+            render={({ field }) => (
+              <DatePicker {...field} />
+            )}
+          />
+          <Controller
+            name="exitDate"
+            control={control}
+            render={({ field }) => (
+              <DatePicker {...field} />
+            )}
+          />
       </div>
       <div className="searchRoom">
         <ModalFilter 
@@ -72,11 +112,16 @@ const filterTitle = (value) =>{
           >
             <GuestFilter/>
           </ModalFilter>
-      </div>
+      </div>  
       <div className="searchButton">
-      <Button onClick={openSearchFiltiring}>ARA</Button>
+      <Button 
+        htmlType="submit">
+        ARA
+      </Button>
       </div>
     </div>
+    </Form>
+
     
 
   );
