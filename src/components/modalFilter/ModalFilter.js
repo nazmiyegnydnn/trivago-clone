@@ -4,7 +4,8 @@ import { Button } from "antd";
 
 const ModalFilter = (props) => {
 
-  const { width, top, height, children, icon, buttonLabel, buttonWidth, isOpen, onOpen, onClose } = props;
+  const { width, top, height, children, icon, buttonLabel, buttonWidth, isOpen, onOpen, onClose ,setInputAdultValue,
+    setInputChildValue, setInputRoomValue ,setInputPriceValue } = props;
   const [isModalVisible, setIsModalVisible] = useState(isOpen || false);
 
   useEffect(() => {
@@ -23,6 +24,14 @@ const ModalFilter = (props) => {
     }
   };
 
+  const handleResetButton = () => {
+    setInputAdultValue(0)
+    setInputChildValue(0)
+    setInputRoomValue(0)
+    setInputPriceValue(0)
+  }
+
+
   return (
     <div className='modal-filter'>
       <Button icon={icon} onClick={handleClick} style={{ width: buttonWidth }}>{buttonLabel || 'Misafir ve Odalar'}</Button>
@@ -30,7 +39,7 @@ const ModalFilter = (props) => {
         <div className='modal' style={{ width: width, top: top, height: height }}>
           {children}
           <div className='modalButtons'>
-            <Button className='resetButton'>Sıfırla</Button>
+            <Button className='resetButton' onClick={handleResetButton}>Sıfırla</Button>
             <Button className='applyButton'>Uygula</Button>
           </div>
         </div>

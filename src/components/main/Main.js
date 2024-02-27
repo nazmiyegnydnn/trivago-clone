@@ -1,70 +1,121 @@
-import React  from "react";
+import React from "react";
 import "./Main.scss";
 import { BulbOutlined, BorderOuterOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import { Button, Select } from "antd";
-import {
-  ArrowRightOutlined,
-  RightOutlined,
-} from "@ant-design/icons";
+import { ArrowRightOutlined, RightOutlined } from "@ant-design/icons";
 
-const Main = ({ trivagoDownload ,openFiltiring ,filterOtelData ,setFilterOtelData}) => {
+const Main = ({
+  trivagoDownload,
+  openFiltiring,
+  openMap,
+  filterOtelData,
+  setFilterOtelData,
+}) => {
   const { otelDatas } = useSelector((state) => state.app);
   const firstThreeItems = otelDatas.slice(0, 3);
+  // const handleChange = (value) => {
+  //   if (value === 'Puan ve Tavsiye') {
+  //     const sortedData = [...filterOtelData].sort((a, b) => b.point - a.point);
+  //     setFilterOtelData(sortedData);
+  //   }
+  //   if (value === 'Yıldız') {
+  //     const starData = [...filterOtelData].sort((a, b) => b.star - a.star);
+  //     setFilterOtelData(starData);
+  //   }
+  // };
   const handleChange = (value) => {
-    if (value === 'Puan ve Tavsiye') {
-      const sortedData = [...filterOtelData].sort((a, b) => b.point - a.point);
+    //bu yukarıdaki filtreleme işleminin kısa hali
+    const filterFunctions = {
+      "Puan ve Tavsiye": (a, b) => b.point - a.point,
+      Yıldız: (a, b) => b.star - a.star,
+      // Diğer filtreleme kriterlerini ekleyebilirsiniz
+    };
+
+    const filterFunction = filterFunctions[value];
+
+    if (filterFunction) {
+      const sortedData = [...filterOtelData].sort(filterFunction);
       setFilterOtelData(sortedData);
-    }
-    if (value === 'Yıldız') {
-      const starData = [...filterOtelData].sort((a, b) => b.star - a.star);
-      setFilterOtelData(starData);
     }
   };
 
+  const HotelCard = ({ item }) => (
+    <div className="otelCards">
+      <img src={item.img} alt={item.name} />
+      <h3>{item.name}</h3>
+      <div className="locationText">
+        <p>{item.point}</p>
+        <p>
+          <span>
+            <BulbOutlined />
+          </span>
+          {item.city}
+        </p>
+      </div>
+      <div className="filterText">
+        <span>
+          <BorderOuterOutlined />
+          <p>{item.pool}</p>
+        </span>
+        <span>
+          <BorderOuterOutlined />
+          <p>{item.spa}</p>
+        </span>
+      </div>
+    </div>
+  );
 
   return (
     <div className="main">
-      {filterOtelData.length > 0  && openFiltiring === true ? (
-        <div className="mainLeft">
-          <div className="arrangement">
+      {filterOtelData.length > 0 && openFiltiring === true ? (
+        <>
+        <div className="mainButtonBar">
+        <div className="arrangement">
             <p>Sıralama</p>
             <Select
-            className="select"
-      defaultValue="Tavsiyelerimiz"
-      onChange={handleChange}
-      options={[
-        {
-          value: 'Tavsiyelerimiz',
-          label: 'Tavsiyelerimiz',
-        },
-        {
-          value: 'Puan ve Tavsiye',
-          label: 'Puan ve Tavsiye',
-        },
-        {
-          value: 'Fiyat ve Tavsiye',
-          label: 'Fiyat ve Tavsiye',
-        },
-        {
-          value: 'Uzaklık ve Tavsiye',
-          label: 'Uzaklık ve Tavsiye',
-        },
-        {
-          value: 'Sadece Puan',
-          label: 'Sadece Puan',
-        },
-        {
-          value: 'Sadece Fiyat',
-          label: 'Sadece Fiyat',
-        },
-        {
-          value: 'Yıldız',
-          label: 'Yıldız',
-        },
-      ]}
-    />
+              className="select"
+              defaultValue="Tavsiyelerimiz"
+              onChange={handleChange}
+              options={[
+                {
+                  value: "Tavsiyelerimiz",
+                  label: "Tavsiyelerimiz",
+                },
+                {
+                  value: "Puan ve Tavsiye",
+                  label: "Puan ve Tavsiye",
+                },
+                {
+                  value: "Fiyat ve Tavsiye",
+                  label: "Fiyat ve Tavsiye",
+                },
+                {
+                  value: "Uzaklık ve Tavsiye",
+                  label: "Uzaklık ve Tavsiye",
+                },
+                {
+                  value: "Sadece Puan",
+                  label: "Sadece Puan",
+                },
+                {
+                  value: "Sadece Fiyat",
+                  label: "Sadece Fiyat",
+                },
+                {
+                  value: "Yıldız",
+                  label: "Yıldız",
+                },
+              ]}
+            />
           </div>
+          <div className="mapSearchButton">
+            <button className="mapButton">
+              <p>Haritayı Görüntüle</p>
+            </button>
+          </div>
+        </div>
+        <div className="mainLeft">
           <div className="filterOtelsMain">
             <div className="filterOtelsCard">
               {filterOtelData.map((el) => (
@@ -112,12 +163,15 @@ const Main = ({ trivagoDownload ,openFiltiring ,filterOtelData ,setFilterOtelDat
                 </div>
               ))}
             </div>
-            <div className="otelMap">Haritalar</div>
           </div>
         </div>
+        <div className="mainRight">
+        <div className="otelMap">Haritalar</div>
+        </div>
+        </>
       ) : (
         <div className="otelsMain">
-          <h3>Popüler Oteller</h3>
+          {/* <h3>Popüler Oteller</h3>
           <div className="popülerOtelsCard">
             {firstThreeItems.map((item, index) => (
               <div key={index} className="otelCards">
@@ -144,8 +198,8 @@ const Main = ({ trivagoDownload ,openFiltiring ,filterOtelData ,setFilterOtelDat
                 </div>
               </div>
             ))}
-          </div>
-          <h3>En Yüksek Puanlı Oteller</h3>
+          </div> */}
+          {/* <h3>En Yüksek Puanlı Oteller</h3>
           <div className="popülerOtelsCard">
             {firstThreeItems.map((item, index) => (
               <div key={index} className="otelCards">
@@ -171,6 +225,18 @@ const Main = ({ trivagoDownload ,openFiltiring ,filterOtelData ,setFilterOtelDat
                   </span>
                 </div>
               </div>
+            ))}
+          </div> */}
+          <h3>Popüler Oteller</h3>
+          <div className="popülerOtelsCard">
+            {firstThreeItems.map((item, index) => (
+              <HotelCard key={index} item={item} />
+            ))}
+          </div>
+          <h3>En Yüksek Puanlı Oteller</h3>
+          <div className="popülerOtelsCard">
+            {firstThreeItems.map((item, index) => (
+              <HotelCard key={index} item={item} />
             ))}
           </div>
         </div>

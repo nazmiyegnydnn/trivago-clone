@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./SearchBar.scss";
 import { Input, DatePicker, Button , Form} from "antd";
 import ModalFilter from "../modalFilter/ModalFilter"
@@ -11,8 +11,11 @@ import moment from 'moment';
 
 
 
-const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring, setTrivagoDownload ,setFilterOtelData}) => {
+const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring, setTrivagoDownload ,setFilterOtelData }) => {
   const { otelDatas } = useSelector((state) => state.app);
+  const [inputAdultValue, setInputAdultValue] = useState(0);
+  const [inputChildValue, setInputChildValue] = useState(0);
+  const [inputRoomValue, setInputRoomValue] = useState(0);
 
   const handleModalOpen = (modalName) => {
     setOpenModal(modalName);
@@ -43,7 +46,7 @@ const filteredOtelData = otelDatas?.filter((otel) => {
   setFilterOtelData(filteredOtelData);
   setOpenFiltiring(true)
   setTrivagoDownload(false)
-}
+} 
 
 
 console.log(watch("entranceDate"))
@@ -109,8 +112,18 @@ console.log(watch("exitDate"))
           isOpen={openModal === 'GuestFilter'}
           onOpen={() => handleModalOpen('GuestFilter')}
           onClose={handleModalClose}
+          setInputAdultValue={setInputAdultValue}
+          setInputChildValue={setInputChildValue}
+          setInputRoomValue={setInputRoomValue}
           >
-            <GuestFilter/>
+            <GuestFilter
+                inputAdultValue={inputAdultValue}
+                setInputAdultValue={setInputAdultValue}
+                inputChildValue={inputChildValue}
+                setInputChildValue={setInputChildValue}
+                inputRoomValue={inputRoomValue}
+                setInputRoomValue={setInputRoomValue}
+            />
           </ModalFilter>
       </div>  
       <div className="searchButton">

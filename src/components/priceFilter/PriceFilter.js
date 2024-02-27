@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {InputNumber,Slider } from 'antd';
 import "./PriceFilter.scss";
 
 
 
-const PriceFilter = () => {
-const [inputValue, setInputValue] = useState(1);
+const PriceFilter = ({  inputPriceValue, setInputPriceValue}) => {
     const onChange = (newValue) => {
-    setInputValue(newValue);
+      setInputPriceValue(newValue);
     };
       
   return (
@@ -15,23 +14,22 @@ const [inputValue, setInputValue] = useState(1);
     <h4>Fiyat aralığını belirleyin</h4>
     <div className='slider'>
     <Slider
-          min={1}
+          min={0}
           max={20}
           onChange={onChange}
-          value={typeof inputValue === 'number' ? inputValue : 0}
+          value={typeof inputPriceValue === 'number' ? inputPriceValue : 0}
         />
     </div>
     <div className='inputNumber'>
     <InputNumber
-          min={1}
-          max={20}
+          min={0}
+          max={16.000}
           style={{
             margin: '0 16px',
           }}
-          value={inputValue}
+          value={inputPriceValue}
           onChange={onChange}
         />
-        
     </div>
     </div>
   )

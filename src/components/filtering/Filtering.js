@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import "./Filtering.scss";
 import { DownOutlined } from "@ant-design/icons";
 import ModalFilter from "../modalFilter/ModalFilter";
@@ -9,7 +9,7 @@ import Accomodation from "../accomodation/Accomodation";
 import Location from "../location/Location";
 
 const Filtering = ({openModal ,setOpenModal}) => {
-  
+  const [inputPriceValue, setInputPriceValue] = useState(0)
 
   const handleModalOpen = (modalName) => {
     setOpenModal(modalName);
@@ -33,8 +33,13 @@ const Filtering = ({openModal ,setOpenModal}) => {
           isOpen={openModal === 'PriceFilter'}
           onOpen={() => handleModalOpen('PriceFilter')}
           onClose={handleModalClose}
+          inputPriceValue={inputPriceValue}
+          setInputPriceValue={setInputPriceValue}
         >
-          <PriceFilter />
+          <PriceFilter 
+          inputPriceValue={inputPriceValue}
+          setInputPriceValue={setInputPriceValue}
+          />
         </ModalFilter>
       </div>
       <div className="filtering">
@@ -80,7 +85,7 @@ const Filtering = ({openModal ,setOpenModal}) => {
           icon={<DownOutlined />}
           isOpen={openModal === 'Accomodation'}
           onOpen={() => handleModalOpen('Accomodation')}
-          onClose={handleModalClose}
+          onClose={handleModalClose} b
         >
           <Accomodation />
         </ModalFilter>
