@@ -9,10 +9,9 @@ import Main from "../main/Main";
 const Home = () => {
   const [openModal, setOpenModal] = useState(null);
   const [openFiltiring, setOpenFiltiring] = useState(false);
-  const [openMap, setOpenMap] = useState(false);
   const [trivagoDownload, setTrivagoDownload] = useState(true);
   const [filterOtelData, setFilterOtelData] = useState([]);
-
+  const [otelCardsDetail, setOtelCardsDetail] = useState(false);
   return (
     <div className="home">
       <Header />
@@ -40,9 +39,10 @@ const Home = () => {
         <Main
           trivagoDownload={trivagoDownload}
           openFiltiring={openFiltiring}
-          openMap={openMap}
           filterOtelData={filterOtelData}
           setFilterOtelData={setFilterOtelData}
+          otelCardsDetail={otelCardsDetail}
+          setOtelCardsDetail={setOtelCardsDetail}
         />
       </div>
       <Footer />
