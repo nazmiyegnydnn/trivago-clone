@@ -13,92 +13,89 @@
                 &:before {
                     height: 200px;
                 }
-            
                 &:after {
                     height: 400px;
                 }
-            }
-            
-            .otelCard{
-                display: flex;
-                 .cardPhoto{
-                    img{
-                        width: 200px;
-                        height: 200px;
-                        border-radius: 20px 0 0 20px;
-                    }
-                 }
-                 .cardText{
-                    margin: px 0 0 20px;
-                    h3{
-                        margin-left: 16px;
-                    }
-                    .locationText{
-                        .evaluation {
-                            display: flex;
-                            justify-content: space-around;
-                            align-items: center;
-                            p{
-                                font-size: 13px;
-                                margin: 0px;
-                                span{
-                                    margin-left: 12px;
+                .otelCard{
+                    display: flex;
+                     .cardPhoto{
+                        img{
+                            width: 200px;
+                            height: 200px;
+                            border-radius: 20px 0 0 20px;
+                        }
+                     }
+                     .cardText{
+                        h3{
+                            margin-left: 16px;
+                        }
+                        .locationText{
+                            .evaluation {
+                                display: flex;
+                                justify-content: space-around;
+                                align-items: center;
+                                p{
+                                    font-size: 13px;
+                                    margin: 0px;
+                                    span{
+                                        margin-left: 12px;
+                                    }
+                                }
+                            }
+                            .point {
+                                display: flex;
+                                justify-content: space-around;
+                                align-items: center;
+                                margin-left: 14px;
+                                p{
+                                    font-size: 12px;
+                                    margin: 0px;
+                                    span{
+                                        margin-left: 12px;
+                                    }
                                 }
                             }
                         }
-                        .point {
+                     }
+                     .cardDetail{
+                        display: flex;
+                        flex-direction: column;
+                        background-color: #F6F9FD;
+                        margin: 30px 0 0 380px;
+                        height: 115px;
+                        padding: 14px;
+                        width: 180px;
+                        p{
+                            font-size: 13px;
+                            color: gray;
+                            margin: 10px 0 15px 1px;
+                        }
+                        Button{
+                            width: 145px;
+                            height: 50px;
+                            color: #056BFD;
+                            font-weight: bolder;
+                            border:1px solid #056BFD;
+                        }
+                        a{
+                            color: #056BFD;
+                            text-decoration: none;
+                            font-size: 12px;
+                            margin: 15px 0 0 73px;                    }
+                     }
+                    .filterText{
+                        display: flex;
+                        margin: 50px 0 0 8px;
+                        span{
                             display: flex;
-                            justify-content: space-around;
-                            align-items: center;
-                            margin-left: 14px;
+                            margin: 0 12px 0 5px;
                             p{
                                 font-size: 12px;
-                                margin: 0px;
-                                span{
-                                    margin-left: 12px;
-                                }
                             }
                         }
                     }
-                 }
-                 .cardDetail{
-                    display: flex;
-                    flex-direction: column;
-                    background-color: #F6F9FD;
-                    margin: 30px 0 0 380px;
-                    height: 115px;
-                    padding: 14px;
-                    width: 180px;
-                    p{
-                        font-size: 13px;
-                        color: gray;
-                        margin: 10px 0 15px 1px;
-                    }
-                    Button{
-                        width: 145px;
-                        height: 50px;
-                        color: #056BFD;
-                        font-weight: bolder;
-                        border:1px solid #056BFD;
-                    }
-                    a{
-                        color: #056BFD;
-                        text-decoration: none;
-                        font-size: 12px;
-                        margin: 15px 0 0 73px;                    }
-                 }
-                .filterText{
-                    display: flex;
-                    margin: 50px 0 0 8px;
-                    span{
-                        display: flex;
-                        margin: 0 12px 0 5px;
-                        p{
-                            font-size: 12px;
-                        }
-                    }
+                
                 }
-            
             }
         } 
 }

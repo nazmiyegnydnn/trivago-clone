@@ -1,5 +1,6 @@
 import React from 'react'
 import './Information.scss'
+import CloseButton from '../../../closeButton/CloseButton'
 
 const Information = () => {
   return (
@@ -49,7 +50,7 @@ const Information = () => {
         </li>
       </ul>
      </div>
- 
+     <CloseButton/>
     </div>
   )
 }

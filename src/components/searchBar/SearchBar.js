@@ -9,8 +9,6 @@ import { useForm, Controller } from "react-hook-form";
 import moment from 'moment';
 
 
-
-
 const SearchBar = ({openModal ,setOpenModal , setOpenFiltiring, setTrivagoDownload ,setFilterOtelData }) => {
   const { otelDatas } = useSelector((state) => state.app);
   const [inputAdultValue, setInputAdultValue] = useState(0);

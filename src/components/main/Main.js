@@ -11,7 +11,7 @@ const Main = ({
   filterOtelData,
   setFilterOtelData,
   otelCardsDetail,
-  setOtelCardsDetail
+  setOtelCardsDetail,
 }) => {
   const { otelDatas } = useSelector((state) => state.app);
   const firstThreeItems = otelDatas.slice(0, 3);
@@ -30,7 +30,7 @@ const Main = ({
     const filterFunctions = {
       "Puan ve Tavsiye": (a, b) => b.point - a.point,
       Yıldız: (a, b) => b.star - a.star,
-      // Diğer filtreleme kriterlerini ekleyebilirsiniz
+      // Diğer filtreleme kriterlerini ekle
     };
 
     const filterFunction = filterFunctions[value];
@@ -41,62 +41,61 @@ const Main = ({
     }
   };
 
-
   return (
     <div className="main">
       {filterOtelData.length > 0 && openFiltiring === true ? (
         <>
-        <div className="mainButtonBar">
-        <div className="arrangement">
-            <p>Sıralama</p>
-            <Select
-              className="select"
-              defaultValue="Tavsiyelerimiz"
-              onChange={handleChange}
-              options={[
-                {
-                  value: "Tavsiyelerimiz",
-                  label: "Tavsiyelerimiz",
-                },
-                {
-                  value: "Puan ve Tavsiye",
-                  label: "Puan ve Tavsiye",
-                },
-                {
-                  value: "Fiyat ve Tavsiye",
-                  label: "Fiyat ve Tavsiye",
-                },
-                {
-                  value: "Uzaklık ve Tavsiye",
-                  label: "Uzaklık ve Tavsiye",
-                },
-                {
-                  value: "Sadece Puan",
-                  label: "Sadece Puan",
-                },
-                {
-                  value: "Sadece Fiyat",
-                  label: "Sadece Fiyat",
-                },
-                {
-                  value: "Yıldız",
-                  label: "Yıldız",
-                },
-              ]}
-            />
+          <div className="mainButtonBar">
+            <div className="arrangement">
+              <p>Sıralama</p>
+              <Select
+                className="select"
+                defaultValue="Tavsiyelerimiz"
+                onChange={handleChange}
+                options={[
+                  {
+                    value: "Tavsiyelerimiz",
+                    label: "Tavsiyelerimiz",
+                  },
+                  {
+                    value: "Puan ve Tavsiye",
+                    label: "Puan ve Tavsiye",
+                  },
+                  {
+                    value: "Fiyat ve Tavsiye",
+                    label: "Fiyat ve Tavsiye",
+                  },
+                  {
+                    value: "Uzaklık ve Tavsiye",
+                    label: "Uzaklık ve Tavsiye",
+                  },
+                  {
+                    value: "Sadece Puan",
+                    label: "Sadece Puan",
+                  },
+                  {
+                    value: "Sadece Fiyat",
+                    label: "Sadece Fiyat",
+                  },
+                  {
+                    value: "Yıldız",
+                    label: "Yıldız",
+                  },
+                ]}
+              />
+            </div>
+            <div className="mapSearchButton">
+              <button className="mapButton">
+                <p>Haritayı Görüntüle</p>
+              </button>
+            </div>
           </div>
-          <div className="mapSearchButton">
-            <button className="mapButton">
-              <p>Haritayı Görüntüle</p>
-            </button>
-          </div>
-        </div>
           <div className="filterOtelsMain">
-           <OtelCards
-           filterOtelData={filterOtelData}
-           otelCardsDetail={otelCardsDetail}
-           setOtelCardsDetail={setOtelCardsDetail}
-           />
+            <OtelCards
+              filterOtelData={filterOtelData}
+              otelCardsDetail={otelCardsDetail}
+              setOtelCardsDetail={setOtelCardsDetail}
+            />
           </div>
         </>
       ) : (

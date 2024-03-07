@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React, { useState } from "react";
 import "./Filtering.scss";
 import { DownOutlined } from "@ant-design/icons";
 import ModalFilter from "../modalFilter/ModalFilter";
@@ -8,8 +8,8 @@ import GuestScore from "../guestScore/GuestScore";
 import Accomodation from "../accomodation/Accomodation";
 import Location from "../location/Location";
 
-const Filtering = ({openModal ,setOpenModal}) => {
-  const [inputPriceValue, setInputPriceValue] = useState(0)
+const Filtering = ({ openModal, setOpenModal }) => {
+  const [inputPriceValue, setInputPriceValue] = useState(0);
 
   const handleModalOpen = (modalName) => {
     setOpenModal(modalName);
@@ -30,15 +30,15 @@ const Filtering = ({openModal ,setOpenModal}) => {
           buttonWidth="300px"
           borderRadius="20px"
           icon={<DownOutlined />}
-          isOpen={openModal === 'PriceFilter'}
-          onOpen={() => handleModalOpen('PriceFilter')}
+          isOpen={openModal === "PriceFilter"}
+          onOpen={() => handleModalOpen("PriceFilter")}
           onClose={handleModalClose}
           inputPriceValue={inputPriceValue}
           setInputPriceValue={setInputPriceValue}
         >
-          <PriceFilter 
-          inputPriceValue={inputPriceValue}
-          setInputPriceValue={setInputPriceValue}
+          <PriceFilter
+            inputPriceValue={inputPriceValue}
+            setInputPriceValue={setInputPriceValue}
           />
         </ModalFilter>
       </div>
@@ -51,8 +51,8 @@ const Filtering = ({openModal ,setOpenModal}) => {
           buttonLabel="Seç"
           buttonWidth="150px"
           icon={<DownOutlined />}
-          isOpen={openModal === 'Filter'}
-          onOpen={() => handleModalOpen('Filter')}
+          isOpen={openModal === "Filter"}
+          onOpen={() => handleModalOpen("Filter")}
           onClose={handleModalClose}
         >
           <Filter></Filter>
@@ -67,8 +67,8 @@ const Filtering = ({openModal ,setOpenModal}) => {
           buttonLabel="Tümü"
           buttonWidth="150px"
           icon={<DownOutlined />}
-          isOpen={openModal === 'GuestScore'}
-          onOpen={() => handleModalOpen('GuestScore')}
+          isOpen={openModal === "GuestScore"}
+          onOpen={() => handleModalOpen("GuestScore")}
           onClose={handleModalClose}
         >
           <GuestScore />
@@ -83,9 +83,10 @@ const Filtering = ({openModal ,setOpenModal}) => {
           buttonLabel="Tümü"
           buttonWidth="150px"
           icon={<DownOutlined />}
-          isOpen={openModal === 'Accomodation'}
-          onOpen={() => handleModalOpen('Accomodation')}
-          onClose={handleModalClose} b
+          isOpen={openModal === "Accomodation"}
+          onOpen={() => handleModalOpen("Accomodation")}
+          onClose={handleModalClose}
+          b
         >
           <Accomodation />
         </ModalFilter>
@@ -99,10 +100,9 @@ const Filtering = ({openModal ,setOpenModal}) => {
           buttonLabel="Şehir merkezi"
           buttonWidth="150px"
           icon={<DownOutlined />}
-          isOpen={openModal === 'Location'}
-          onOpen={() => handleModalOpen('Location')}
+          isOpen={openModal === "Location"}
+          onOpen={() => handleModalOpen("Location")}
           onClose={handleModalClose}
-          
         >
           <Location />
         </ModalFilter>

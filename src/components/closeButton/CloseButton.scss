@@ -1,0 +1,13 @@
+.closeButton{
+    margin-bottom: 10px;
+    .line{
+        border-bottom: 0,10px solid gray; 
+        width: 100%; 
+        margin: 10px 0;
+    }
+    .tabButtons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

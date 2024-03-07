@@ -3,6 +3,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        margin-left: 10px;
         .arrangement{
             display: flex;
             justify-content: start;
@@ -48,6 +49,9 @@
                 }
             }
         }
+    }
+    .filterOtelsMain{
+        margin-left: 160px;
     }
     .otelsMain{
         width: 945px;
