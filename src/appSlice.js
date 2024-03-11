@@ -31,7 +31,7 @@ const initialState = {
             city:"Ankara",
             name: "Kızılay Otel",
             price:"200TL",
-            point:2,
+            point:7,
             type:"Otel",
             star:2,
             pool:"Havuz",
@@ -57,7 +57,7 @@ const initialState = {
             city:"İzmir",
             name: "Konak Ev/Apart",
             price:"400TL",
-            point:4,
+            point:9,
             type:"Ev/Apart",
             star:4,
             pool:"Havuz"
@@ -90,7 +90,7 @@ const initialState = {
             city:"İstanbul",
             name: "Taksim Otel",
             price:"800TL",
-            point:8,
+            point:7,
             type:"Otel",
             star:5,
             spa:"spa"
@@ -101,7 +101,7 @@ const initialState = {
             city:"Ankara",
             name: "Konur Otel",
             price:"500TL",
-            point:7,
+            point:9,
             type:"Otel",
             star:2,
             spa:"spa"
@@ -112,7 +112,7 @@ const initialState = {
             city:"İzmir",
             name: "Alaçatı Otel",
             price:"1000TL",
-            point:8,
+            point:6,
             type:"Otel",
             star:5,
             spa:"spa"
@@ -123,7 +123,7 @@ const initialState = {
             city:"Eskişehir",
             name: "Espark Ev/Apart",
             price:"700TL",
-            point:7,
+            point:6,
             type:" Ev/Apart",
             star:2,
             spa:"spa"

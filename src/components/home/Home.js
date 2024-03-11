@@ -30,7 +30,12 @@ const Home = () => {
         </div>
         {openFiltiring ? (
           <div className="homeFilteringBar">
-            <Filtering openModal={openModal} setOpenModal={setOpenModal} />
+            <Filtering 
+            setFilterOtelData={setFilterOtelData}
+            filterOtelData={filterOtelData}
+            openModal={openModal} 
+            setOpenModal={setOpenModal}
+             />
           </div>
         ) : (
           ""

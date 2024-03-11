@@ -32,9 +32,7 @@ const Main = ({
       Yıldız: (a, b) => b.star - a.star,
       // Diğer filtreleme kriterlerini ekle
     };
-
     const filterFunction = filterFunctions[value];
-
     if (filterFunction) {
       const sortedData = [...filterOtelData].sort(filterFunction);
       setFilterOtelData(sortedData);

@@ -8,8 +8,9 @@ import GuestScore from "../guestScore/GuestScore";
 import Accomodation from "../accomodation/Accomodation";
 import Location from "../location/Location";
 
-const Filtering = ({ openModal, setOpenModal }) => {
+const Filtering = ({ openModal, setOpenModal , setFilterOtelData , filterOtelData}) => {
   const [inputPriceValue, setInputPriceValue] = useState(0);
+  const [selectedPuan, setSelectedPuan] = useState(null);
 
   const handleModalOpen = (modalName) => {
     setOpenModal(modalName);
@@ -63,15 +64,21 @@ const Filtering = ({ openModal, setOpenModal }) => {
         <ModalFilter
           width="300px"
           top="20px"
-          height="320px"
+          height="320px" 
           buttonLabel="Tümü"
           buttonWidth="150px"
           icon={<DownOutlined />}
           isOpen={openModal === "GuestScore"}
           onOpen={() => handleModalOpen("GuestScore")}
           onClose={handleModalClose}
+          filterOtelData={filterOtelData}
+          setFilterOtelData={setFilterOtelData}
+          selectedPuan={selectedPuan}
         >
-          <GuestScore />
+          <GuestScore 
+             setSelectedPuan={setSelectedPuan}
+             selectedPuan={selectedPuan}
+          />
         </ModalFilter>
       </div>
       <div className="filtering">
@@ -80,7 +87,7 @@ const Filtering = ({ openModal, setOpenModal }) => {
           width="300px"
           top="20px"
           height="250px"
-          buttonLabel="Tümü"
+          buttonLabel="Seç"
           buttonWidth="150px"
           icon={<DownOutlined />}
           isOpen={openModal === "Accomodation"}

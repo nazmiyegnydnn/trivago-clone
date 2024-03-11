@@ -18,6 +18,10 @@ const ModalFilter = (props) => {
     setInputChildValue,
     setInputRoomValue,
     setInputPriceValue,
+    filterOtelData,
+    setFilterOtelData,
+    selectedPuan
+
   } = props;
   const [isModalVisible, setIsModalVisible] = useState(isOpen || false);
 
@@ -44,6 +48,10 @@ const ModalFilter = (props) => {
     setInputPriceValue(0);
   };
 
+  const handleApplyButton = () => {
+    const filteredGuestScore = filterOtelData.filter(item => item.point === selectedPuan);
+    setFilterOtelData(filteredGuestScore);
+  };
   return (
     <div className="modal-filter">
       <Button icon={icon} onClick={handleClick} style={{ width: buttonWidth }}>
@@ -59,7 +67,7 @@ const ModalFilter = (props) => {
             <Button className="resetButton" onClick={handleResetButton}>
               Sıfırla
             </Button>
-            <Button className="applyButton">Uygula</Button>
+            <Button className="applyButton" onClick={handleApplyButton} >Uygula</Button>
           </div>
         </div>
       )}
